@@ -22,6 +22,9 @@ def preprocess_image(image):
     img = img / 255.0  # Normalize the image
     return img
 
+@app.get("/")
+async def root():
+    return {"message": "Hallo FISHHH!"}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
