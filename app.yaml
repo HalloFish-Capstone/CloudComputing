@@ -1,4 +1,3 @@
 runtime: python39
-instance_class: F2
 
-entrypoint: uvicorn main:app --host=0.0.0.0 --port=${PORT}
+entrypoint: uvicorn main:app 
