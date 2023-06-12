@@ -4,7 +4,8 @@ import io
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import img_to_array, load_img
+from tensorflow.keras.preprocessing.image import img_to_array
+from os import environ as env
 
 app = FastAPI()
 
@@ -24,7 +25,7 @@ def preprocess_image(image):
 
 @app.get("/")
 async def root():
-    return {"message": "Hallo FISHHH!"}
+    return {"message": f"Hallo FISHHH! env = {env['MY_VARIABLE']}"}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
